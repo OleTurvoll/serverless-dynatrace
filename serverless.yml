@@ -1,0 +1,30 @@
+service: serverless-dynatrace
+
+frameworkVersion: ">=1.2.7 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: ap-southeast-2
+  stage: dev
+  environment:
+    DT_LAMBDA_OPTIONS : ${self:custom.secrets.DYNATRACE}
+
+custom:
+ secrets: ${file(env.${opt:stage, self:provider.stage}.yml)} # this is where the dynatrace config is held - for this example it's unencrypted.
+ stage: ${opt:stage, self:provider.stage} #default is dev
+ webpack:
+  includeModules:
+    forceInclude:
+      - "@dynatrace/oneagent" # without this config we'd never package lamdbas with the agent
+  packager: "yarn"
+
+functions:
+  gitHubUser:
+    timeout : 3 # defaults to 6
+    memorySize: 128 # optional, in MB, default is 1024
+    handler: lambdas/handler.gitHubUser
+
+
+plugins:
+  - serverless-webpack

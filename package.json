@@ -1,0 +1,31 @@
+{
+  "name": "serverless-dynatrace",
+  "version": "0.0.1",
+  "description": "Dynatrace monitoring with serverless",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/OleTurvoll/serverless-dynatrace.git"
+  },
+  "author": "Ole Turvoll <oleturvoll@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "serverless",
+    "dynatrace",
+    "aws",
+    "lambda",
+    "webpack"
+  ],
+  "dependencies": {
+    "@dynatrace/oneagent": "^1.139.212-1.0.3",
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "serverless-webpack": "^5.1.5",
+    "webpack": "^4.10.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
