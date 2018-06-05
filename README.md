@@ -23,7 +23,11 @@ yarn global add serverless
 
 Step 2. Clone repo
 ```bash
-git clone: 
+git clone {this repo}
+cd serverless-dynatrace
+yarn install
+- OR -
+npm install
 ```
 
 Step 3. Amend the REDACTED variables in env.dev.yml to suit your needs
